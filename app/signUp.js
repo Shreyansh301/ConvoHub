@@ -18,9 +18,11 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useRouter } from "expo-router";
 import Loading from "../components/Loading";
 import CustomKeyboardView from "../components/CustomKeyboardView";
+import { useAuth } from "../context/authContext";
 
 export default function signUp() {
   const router = useRouter();
+  const {register} = useAuth();
   const [loading, setLoading] = useState(false);
 
   const emailRef = useRef("");
@@ -33,8 +35,15 @@ export default function signUp() {
       Alert.alert("Sign Up", "Please fill all the fields!");
       return;
     }
+    setLoading(true);
 
-    //register process
+    let response = await register(emailRef.current, passwordRef.current, usernameRef.current, profileRef.current)
+    setLoading(false);
+
+    console.log('got result: ', response);
+    if(!response.success){
+      Alert.alert('Sign Up', response.msg);
+    }
   };
   return (
     <CustomKeyboardView>
