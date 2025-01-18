@@ -7,12 +7,12 @@ import {getReactNativePersistence, initializeAuth} from 'firebase/auth';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {getFirestore, collection} from 'firebase/firestore';
 const firebaseConfig = {
-  apiKey: "AIzaSyAw9QXBDkx4tRju7VJUt1uEeNsFhn6bEb0",
-  authDomain: "convohub-git.firebaseapp.com",
-  projectId: "convohub-git",
-  storageBucket: "convohub-git.firebasestorage.app",
-  messagingSenderId: "948391343278",
-  appId: "1:948391343278:web:e27138ad3bf3b36412293f"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
