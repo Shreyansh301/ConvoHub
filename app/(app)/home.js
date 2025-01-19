@@ -8,7 +8,7 @@ export default function Home() {
       await logout();
     }
   return (
-    <View>
+    <View className="flex-1 bg-white">
       <Text>Home</Text>
       {/* <Button title='Sign Out' onPress={handleLogout} /> */}
       <Pressable onPress={handleLogout}>
